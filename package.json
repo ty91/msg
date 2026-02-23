@@ -1,0 +1,36 @@
+{
+  "name": "msg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cli.js",
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/cli.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "clean": "rm -rf dist .vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.27.0",
+  "dependencies": {
+    "@slack/socket-mode": "^2.0.5",
+    "@slack/web-api": "^7.14.1",
+    "toml": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "eslint": "^10.0.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "bin": {
+    "msg": "dist/cli.js"
+  }
+}

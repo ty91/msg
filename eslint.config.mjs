@@ -1,0 +1,38 @@
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import globals from "globals";
+import prettier from "eslint-config-prettier";
+
+export default [
+  {
+    ignores: ["dist", "node_modules"],
+  },
+  {
+    files: ["**/*.ts"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint,
+    },
+    rules: {
+      ...tseslint.configs.recommended.rules,
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          prefer: "type-imports",
+          fixStyle: "inline-type-imports",
+        },
+      ],
+    },
+  },
+  prettier,
+];
